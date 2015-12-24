@@ -8,6 +8,7 @@ import android.content.Context;
  */
 public class MyApplication extends Application {
     private static Application mContext;
+    private String TAG = "weiba";
     @Override
     public void onCreate() {
         super.onCreate();

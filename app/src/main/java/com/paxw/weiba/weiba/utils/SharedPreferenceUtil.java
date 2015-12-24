@@ -3,7 +3,8 @@ package com.paxw.weiba.weiba.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.paxw.phonesafe.myapplication.MyApplication;
+import com.paxw.weiba.weiba.MyApplication;
+
 
 public class SharedPreferenceUtil {
     private final static int MODE = Context.MODE_PRIVATE;

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="平台"
+        android:id="@+id/share_title"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:padding="20dp"
+        android:background="#ffff89"
+        android:textSize="25sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/share_content"
+        android:hint="输入你想分享的文字"
+        android:maxLength="140"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="输入想分享图片的位置"
+        android:id="@+id/share_pic_url"
+        android:visibility="gone"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开始装B"
+        android:id="@+id/share" />
+
+</LinearLayout>

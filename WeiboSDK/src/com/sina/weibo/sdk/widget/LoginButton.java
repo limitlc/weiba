@@ -161,7 +161,6 @@ public class LoginButton extends Button implements OnClickListener {
         if (mExternalOnClickListener != null) {
             mExternalOnClickListener.onClick(v);
         }
-	    
 		if (null == mSsoHandler && mAuthInfo != null) {
 			mSsoHandler = new SsoHandler((Activity)mContext, mAuthInfo);
 		}

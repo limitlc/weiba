@@ -1,4 +1,4 @@
-package com.paxw.weiba.weiba.utils;
+package com.paxw.weiba.utils;
 
 import java.security.MessageDigest;
 

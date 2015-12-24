@@ -1,4 +1,4 @@
-package com.paxw.weiba.weiba.utils;
+package com.paxw.weiba.utils;
 
 /**
  *
@@ -22,10 +22,6 @@ public class Constants {
 
 
 
-    ///////////////////////////////////////////////////
-    //数据库常量
-    public static final String DBNAME = "blacknumber.db";
-    public static final String DBTBLACKNUMBER = "blacknumber";
-    public static final String DBPNUMBER = "number";
-    public static final String DBPMODE = "mode";
+    ///////////////////////////////////////////////////weibo 的token
+
 }

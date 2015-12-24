@@ -1,8 +1,10 @@
-package com.paxw.weiba.weiba.utils;
+package com.paxw.weiba.utils;
 
 import android.widget.Toast;
 
-import com.paxw.weiba.weiba.MyApplication;
+import com.paxw.weiba.MyApplication;
+
+
 
 
 /**

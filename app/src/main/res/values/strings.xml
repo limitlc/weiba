@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Weiba</string>
+    <string name="oauth2accessSuccess">授权成功</string>
 </resources>

@@ -1,5 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.paxw.weiba.weiba">
+    package="com.paxw.weiba">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 用于调用 JNI -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:allowBackup="true"
@@ -8,6 +14,34 @@
         android:supportsRtl="true"
         android:name=".MyApplication"
         android:theme="@style/AppTheme">
+        <!-- weiboSDK   添加的权限    -->
+        <!--<uses-permission android:name="android.permission.INTERNET" />-->
+        <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />-->
+        <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
+        <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
+
+
+
+
+
+        <activity android:name="com.paxw.weiba.activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+
+        <!-- weibo  SDK 添加   -->
+
+        <activity
+            android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false" >
+        </activity>
 
     </application>
 

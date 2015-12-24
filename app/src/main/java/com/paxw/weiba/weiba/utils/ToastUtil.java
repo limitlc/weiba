@@ -2,7 +2,8 @@ package com.paxw.weiba.weiba.utils;
 
 import android.widget.Toast;
 
-import com.paxw.phonesafe.myapplication.MyApplication;
+import com.paxw.weiba.weiba.MyApplication;
+
 
 /**
  * Created by Administrator on 2015/12/11.

@@ -5,6 +5,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,9 @@ import com.sina.weibo.sdk.auth.WeiboAuthListener;
 import com.sina.weibo.sdk.auth.sso.SsoHandler;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.widget.LoginButton;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class SplashActivity extends BaseActivity {
 
@@ -39,12 +43,35 @@ public class SplashActivity extends BaseActivity {
         setContentView(R.layout.activity_first);
         // FIXME: 2015/12/24 如果有token应该跳过这一步
 
+
         mAuthInfo = new AuthInfo(this, WeiBoConstants.APP_KEY,
                 WeiBoConstants.REDIRECT_URL, WeiBoConstants.SCOPE);
         version = (TextView) findViewById(R.id.version_text);
         version.setText("版本号:" + getVersion());
         login = (LoginButton) findViewById(R.id.sina_login);
         login.setWeiboAuthInfo(mAuthInfo, new AuthListener());
+
+        Oauth2AccessToken oauth2AccessToken = AccessTokenKeeper.readAccessToken(this);
+        if (null!= oauth2AccessToken && oauth2AccessToken.isSessionValid() && !TextUtils.isEmpty(oauth2AccessToken.getToken())){
+             login.setVisibility(View.GONE);
+            Timer time  = new Timer();
+            TimerTask task  = new TimerTask() {
+                @Override
+                public void run() {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            startActivity(new Intent(SplashActivity.this , MainActivity.class));
+                            finish();
+                        }
+                    });
+                }
+            };
+            time.schedule(task,2000);
+
+
+
+        }
     }
 
     public String getVersion() {
@@ -73,6 +100,8 @@ public class SplashActivity extends BaseActivity {
 
                 ToastUtil.showToast(getString(R.string.oauth2accessSuccess));
                 // TODO: 2015/12/24 跳转到主页
+                startActivity(new Intent(SplashActivity.this,MainActivity.class));
+                finish();
             } else {
                 // 以下几种情况，您会收到 Code：
                 // 1. 当您未在平台上注册的应用程序的包名与签名时；

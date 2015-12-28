@@ -21,12 +21,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.paxw.weiba.R;
-import com.paxw.weiba.utils.AccessTokenKeeper;
 import com.paxw.weiba.utils.ToastUtil;
 import com.paxw.weiba.utils.WeiBoConstants;
 import com.sina.weibo.sdk.exception.WeiboException;
+import com.sina.weibo.sdk.net.AsyncWeiboRunner;
 import com.sina.weibo.sdk.net.RequestListener;
-import com.sina.weibo.sdk.openapi.StatusesAPI;
+import com.sina.weibo.sdk.net.WeiboParameters;
 
 import java.io.File;
 import java.io.IOException;
@@ -312,20 +312,41 @@ public class NewWeibo extends BaseActivity implements OnClickListener,
 //            ToastUtil.showLongToast(this, "超出字数请删除些字符");
             return;
         }
+        /** 可以自行拼接参数，异步请求数据 */
+                    WeiboParameters wbparams = new WeiboParameters(WeiBoConstants.APP_KEY);
+                    wbparams.put("access_token", mAccessToken.getToken());
+                    wbparams.put("status",       text);
+                    wbparams.put("lat",          "14.5");
+                    wbparams.put("long",         "23.0");
 
+                   new  AsyncWeiboRunner(this).requestAsync(
+                            "https://api.weibo.com/2/statuses/upload.json",
+                            wbparams,
+                            "POST",
+                            new RequestListener() {
+                                @Override
+                                public void onComplete(String s) {
+                                    ToastUtil.showToast(s);
+                                }
 
-        StatusesAPI mStatusesAPI = new StatusesAPI(this, WeiBoConstants.APP_KEY, AccessTokenKeeper.readAccessToken(this));
-        mStatusesAPI.update("一条测试微博", null, null, new RequestListener() {
-            @Override
-            public void onComplete(String s) {
-                ToastUtil.showToast(s);
-            }
+                                @Override
+                                public void onWeiboException(WeiboException e) {
 
-            @Override
-            public void onWeiboException(WeiboException e) {
+                                }
+                            });
 
-            }
-        });
+//        StatusesAPI mStatusesAPI = new StatusesAPI(this, WeiBoConstants.APP_KEY, AccessTokenKeeper.readAccessToken(this));
+//        mStatusesAPI.update(text, "18.3", "109.3", new RequestListener() {
+//            @Override
+//            public void onComplete(String s) {
+//                ToastUtil.showToast(s);
+//            }
+//
+//            @Override
+//            public void onWeiboException(WeiboException e) {
+//
+//            }
+//        });
         switch (weiboType) {
 //            case SINA:
 //                sinaSend(text);

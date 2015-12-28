@@ -31,6 +31,17 @@
         android:layout_marginBottom="50dp"
         android:layout_alignParentBottom="true"
         />
+    <Button
+        android:id="@+id/sina_loginout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/splash_unlogin"
+         android:text="注销"
+        />
+
 
 
 

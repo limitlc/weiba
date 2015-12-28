@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="50dp"
+    android:layout_width="match_parent"
+    android:id="@+id/main_content_title"
+    android:background="#5555ff"
+
+    >
+
+
+        <TextView
+            android:id="@+id/main_content_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="木子李是块好铁"
+            android:textColor="#FFFFFF"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            />
+    <ImageButton
+        android:id="@+id/main_content_title_meau"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/main_title_make_news"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:layout_centerVertical="true"
+        android:onClick="news"
+        />
+
+
+</RelativeLayout>

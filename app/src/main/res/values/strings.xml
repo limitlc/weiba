@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">Weiba</string>
     <string name="oauth2accessSuccess">授权成功</string>
+
+
+    <!-- 发布微博界面-->
+    <string name="back">返回</string>
+    <string name="post_weibo">内容</string>
+    <string name="send">biubiu</string>
+    <string name="post_as_comment">同时作为评论发布</string>
+    <string name="cb_post_weibo">同时发布一条微博</string>
+    <string name="empty"></string>
+    <string name="text_count">140</string>
+    <string name="talk_something">说点啥呗</string>
+
 </resources>

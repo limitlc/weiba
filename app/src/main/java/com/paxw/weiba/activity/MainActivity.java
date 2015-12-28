@@ -1,7 +1,9 @@
 package com.paxw.weiba.activity;
 
+import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -41,6 +43,7 @@ public class MainActivity extends BaseActivity {
         icon = (ImageView) findViewById(R.id.user_info_icon);
         myGroup = (ListView) findViewById(R.id.my_group_listview);
         refGroup = (BGARefreshLayout) findViewById(R.id.rl_group_refresh);
+
         getUserInfo();
 
 
@@ -89,5 +92,11 @@ public class MainActivity extends BaseActivity {
 
         }
     };
+    public void news(View View){
+        Intent news = new Intent(this ,NewWeibo.class);
+        startActivity(news);
+//
+
+    }
 
 }

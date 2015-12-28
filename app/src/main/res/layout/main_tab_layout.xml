@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal"
+    android:background="@color/tabcolor"
+    >
+    <RadioGroup
+        android:orientation="horizontal"
+        android:id="@+id/main_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RadioButton
+            android:gravity="center_horizontal"
+            android:id="@+id/bottom_first"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:drawableTop="@drawable/home_tab_icon_1"
+            android:text="主页"
+            android:textSize="10sp"
+            android:checked="true"
+            android:textColor="@color/color_radiobutton"
+            />
+        <RadioButton
+            android:gravity="center_horizontal"
+            android:textSize="10sp"
+            android:id="@+id/bottom_second"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:button="@null"
+            android:drawableTop="@drawable/home_tab_icon_2"
+            android:text="通知"
+            android:textColor="@color/color_radiobutton"
+            />
+        <RadioButton
+            android:textSize="10sp"
+            android:gravity="center_horizontal"
+            android:id="@+id/bottom_third"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:button="@null"
+            android:drawableTop="@drawable/home_tab_icon_3"
+            android:text="搜索"
+            android:textColor="@color/color_radiobutton"
+            />
+        <RadioButton
+            android:textSize="10sp"
+            android:gravity="center_horizontal"
+            android:paddingBottom="3dp"
+            android:id="@+id/bottom_fourth"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:button="@null"
+            android:drawableTop="@drawable/home_tab_icon_4"
+            android:text="个人"
+            android:textColor="@color/color_radiobutton"
+            />
+
+
+    </RadioGroup>
+
+</LinearLayout>

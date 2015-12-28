@@ -15,11 +15,11 @@
             android:layout_gravity="left"
             android:orientation="vertical" >
         </include>
-        <LinearLayout
+        <include
+            layout="@layout/main_content"
             android:id="@+id/force"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#ffffff"
             android:orientation="vertical"/>
 
 

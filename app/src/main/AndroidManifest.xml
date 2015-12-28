@@ -33,6 +33,9 @@
             android:configChanges="keyboardHidden|orientation"
             android:launchMode="singleTask"
            />
+        <activity android:name=".activity.NewWeibo"
+            android:configChanges="keyboardHidden|orientation"
+            />
 
 
 

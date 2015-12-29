@@ -1,0 +1,32 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+
+<!--添加一个没有数据时候的界面-->
+    <!-- 自定义刷新列表，下拉刷新 -->
+
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <cn.bingoogolapple.refreshlayout.BGARefreshLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/rl_home_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- 内容控件 -->
+            <ListView
+                android:id="@+id/main_list"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+        </cn.bingoogolapple.refreshlayout.BGARefreshLayout>
+    </FrameLayout>
+
+</LinearLayout>

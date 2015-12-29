@@ -34,5 +34,5 @@ dependencies {
     // 记得添加nineoldandroids
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'cn.bingoogolapple:bga-refreshlayout:1.1.2@aar'
-
+    compile files('libs/butterknife-7.0.1.jar')
 }

@@ -3,7 +3,7 @@ package com.paxw.weiba.utils;
 /**
  * Created by lichuang on 2015/12/24.
  */
-public interface WeiBoConstants {
+public class WeiBoConstants {
     public static final String APP_KEY      = "2160152899";		   // 应用的APP_KEY
     public static final String REDIRECT_URL = "https://api.weibo.com/oauth2/default.html";// 应用的回调页
     public static final String SCOPE = 							   // 应用申请的高级权限

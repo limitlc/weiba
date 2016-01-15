@@ -13,4 +13,16 @@
     <string name="text_count">140</string>
     <string name="talk_something">说点啥呗</string>
 
+
+    <!-- 主页个人中心-->
+    <string name="screen_name">昵称</string>
+    <string name="location">位置</string>
+    <string name="description">描述</string>
+    <string name="zero">0</string>
+    <string name="friends">关注</string>
+    <string name="weibo">微博</string>
+    <string name="follows">粉丝</string>
+    <string name="favorites">收藏</string>
+    <string name="self_center">个人中心</string>
+
 </resources>

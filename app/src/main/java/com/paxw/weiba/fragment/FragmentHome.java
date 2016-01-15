@@ -1,22 +1,18 @@
 package com.paxw.weiba.fragment;
 
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.paxw.weiba.R;
 import com.paxw.weiba.utils.AccessTokenKeeper;
-import com.paxw.weiba.utils.Logs;
 import com.paxw.weiba.utils.WeiBoConstants;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.openapi.legacy.StatusesAPI;
-import com.sina.weibo.sdk.openapi.models.Status;
+import com.sina.weibo.sdk.openapi.models.StatusList;
 
-import butterknife.ButterKnife;
 import cn.bingoogolapple.refreshlayout.BGARefreshLayout;
 
 /**
@@ -70,28 +66,23 @@ public class FragmentHome extends BaseFragment implements BGARefreshLayout.BGARe
     }
 
     private void requestWEIBOAPI(){
-        StatusesAPI statuse = new StatusesAPI(mActivity, WeiBoConstants.APP_KEY,AccessTokenKeeper.readAccessToken(mActivity));
+        StatusesAPI statuse = new StatusesAPI(mActivity, WeiBoConstants.APP_KEY, AccessTokenKeeper.readAccessToken(mActivity));
         statuse.publicTimeline(50 ,1,false,new RequestListener(){
-
             @Override
             public void onComplete(String response) {
                 if (!TextUtils.isEmpty(response)) {
-                    // 调用 User#parse 将JSON串解析成User对象
-                    Logs.e(response);
-                    Status status = Status.parse(response);
-                    if (null!= status){
+
+                    StatusList statusList = StatusList.parse(response);
+                    if (null!= statusList){
 
 
 
                     }
-
-
                 }
             }
 
             @Override
             public void onWeiboException(WeiboException e) {
-
             }
         });
 
@@ -101,20 +92,6 @@ public class FragmentHome extends BaseFragment implements BGARefreshLayout.BGARe
     public void initData() {
         super.initData();
 
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        ButterKnife.bind(this, rootView);
-        return rootView;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        ButterKnife.unbind(this);
     }
 
     @Override

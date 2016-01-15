@@ -6,4 +6,6 @@
     <color name="white">#FFFFFF</color>
     <color name="tabcolor">#dddddd</color>
     <color name="text_color">#ff404142</color>
+    <color name="myblue">#5555ff</color>
+    <color name="mytransparent">#00000000</color>
 </resources>

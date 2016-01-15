@@ -8,16 +8,19 @@ import com.paxw.weiba.MyApplication;
 
 public class SharedPreferenceUtil {
     private final static int MODE = Context.MODE_PRIVATE;
-//    private static SharedPreferences mSharedPreferences; 
-//    private static SharedPreferences.Editor mEditor;
+	public  final static String USERKEY = "userkey";
     
     private final static String DEFAULT_STRING = "";
+	private final static String DEFAULT_NAME = "appsp";
 
     public static String getString(String name, String key) {
     	Context context = MyApplication.getContext();
     	SharedPreferences mSharedPreferences = context.getSharedPreferences(name, MODE);
     	return mSharedPreferences.getString(key, DEFAULT_STRING);
     }
+	public  static String getString(String key){
+		return getString(DEFAULT_NAME, key);
+	}
     
     public static int getInteger(String name, String key, int defValue) {
     	Context context = MyApplication.getContext();
@@ -32,8 +35,11 @@ public class SharedPreferenceUtil {
     	mEditor.putString(key, value);
     	return mEditor.commit();
     }
+	public static boolean setString(String key,String value){
+		return setString(DEFAULT_NAME,key,value);
+	}
 
-    public static boolean setInteger(String name, String key, int value) {
+	public static boolean setInteger(String name, String key, int value) {
     	Context context = MyApplication.getContext();
     	SharedPreferences mSharedPreferences = context.getSharedPreferences(name, MODE);
     	SharedPreferences.Editor mEditor = mSharedPreferences.edit();
@@ -74,6 +80,8 @@ public class SharedPreferenceUtil {
     	mEditor.clear();
     	return mEditor.commit();
     }
+
+
 
 
 }

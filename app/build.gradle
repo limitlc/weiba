@@ -35,4 +35,5 @@ dependencies {
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'cn.bingoogolapple:bga-refreshlayout:1.1.2@aar'
     compile files('libs/butterknife-7.0.1.jar')
+    compile files('libs/gson-2.2.3.jar')
 }

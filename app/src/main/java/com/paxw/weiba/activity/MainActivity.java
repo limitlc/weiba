@@ -1,11 +1,9 @@
 package com.paxw.weiba.activity;
 
-import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -16,6 +14,7 @@ import com.paxw.weiba.R;
 import com.paxw.weiba.fragment.FragmentFactory;
 import com.paxw.weiba.picasso.CircleTransform;
 import com.paxw.weiba.utils.Logs;
+import com.paxw.weiba.utils.SharedPreferenceUtil;
 import com.paxw.weiba.utils.WeiBoConstants;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.RequestListener;
@@ -40,6 +39,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     private GroupAPI groupAPI;
     private FrameLayout mainContent;
     private RadioGroup radioGroup;
+    private User user;
 
     @Override
     protected void initView(){
@@ -83,10 +83,12 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         public void onComplete(String response) {
             if (!TextUtils.isEmpty(response)) {
                 // 调用 User#parse 将JSON串解析成User对象
-                Logs.e(response);
-                User user = User.parse(response);
+                Logs.e("user", response);
+                user = User.parse(response);
+                if (TextUtils.isEmpty(SharedPreferenceUtil.getString(SharedPreferenceUtil.USERKEY)))
+                         SharedPreferenceUtil.setString(SharedPreferenceUtil.USERKEY,response);
                 Logs.e(user.avatar_large);
-                if (null!=user){
+                if (null!= user){
                     Picasso.with(MainActivity.this).load(user.avatar_large).transform(new CircleTransform()).into(icon);
                     textName.setText(user.screen_name);
 
@@ -102,12 +104,12 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
         }
     };
-    public void news(View View){
-        Intent news = new Intent(this ,NewWeibo.class);
-        startActivity(news);
+//    public void news(View View){
+//        Intent news = new Intent(this ,NewWeibo.class);
+//        startActivity(news);
+////
 //
-
-    }
+//    }
 
 
     @Override
@@ -124,6 +126,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                 break;
             case R.id.bottom_fourth:
                 chechFragment(FragmentFactory.FRAGMENTSELF);
+
                 break;
             default:
                 chechFragment(FragmentFactory.FRAGMENTHOME);
@@ -144,5 +147,12 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         ft.commit();
         // TODO: 2015/12/29 更改title 
 
+    }
+
+    public User getUserInfoByActivity(){
+        if (null == user){
+            return null;
+        }
+        return user;
     }
 }

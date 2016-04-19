@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.joooonho.SelectableRoundedImageView;
 import com.paxw.weiba.R;
 import com.paxw.weiba.utils.AccessTokenKeeper;
 import com.paxw.weiba.utils.Logs;
@@ -31,7 +32,7 @@ import cn.bingoogolapple.refreshlayout.BGAStickinessRefreshViewHolder;
  */
 public class FragmentSelf extends BaseFragment implements BGARefreshLayout.BGARefreshLayoutDelegate {
     private TextView tvUsername; // 用户名
-    private ImageView ivPhoto; // 头像
+    private SelectableRoundedImageView ivPhoto; // 头像
     private TextView tvScreenName; // 昵称
     private TextView tvLocation; // 位置
     private TextView tvDescription; // 描述
@@ -67,7 +68,7 @@ public class FragmentSelf extends BaseFragment implements BGARefreshLayout.BGARe
         tvUsername = (TextView) parent.findViewById(R.id.main_content_title_text);
         tvUsername.setText(getString(R.string.self_center));
         parent.findViewById(R.id.main_content_title_newweibo).setVisibility(View.GONE);
-        ivPhoto = (ImageView) parent.findViewById(R.id.photo);
+        ivPhoto = (SelectableRoundedImageView) parent.findViewById(R.id.photo);
         tvScreenName = (TextView) parent.findViewById(R.id.name);
         tvLocation = (TextView) parent.findViewById(R.id.tv_address);
         tvDescription = (TextView) parent.findViewById(R.id.description);
@@ -110,7 +111,7 @@ public class FragmentSelf extends BaseFragment implements BGARefreshLayout.BGARe
     private User mySelf;
     public void initData(){
         if (null == mySelf) {
-            if (!TextUtils.isEmpty(SharedPreferenceUtil.getString(SharedPreferenceUtil.USERKEY))) {
+            if (TextUtils.isEmpty(SharedPreferenceUtil.getString(SharedPreferenceUtil.USERKEY))) {
                 mySelf = User.parse(SharedPreferenceUtil.getString(SharedPreferenceUtil.USERKEY));
             } else {
                 requestSelfInfo();
@@ -118,7 +119,8 @@ public class FragmentSelf extends BaseFragment implements BGARefreshLayout.BGARe
             }
         }
         tvScreenName.setText(mySelf.screen_name);
-        Picasso.with(mActivity).load(mySelf.avatar_large).into(ivPhoto);
+
+        Picasso.with(mActivity).load(mySelf.profile_image_url).into(ivPhoto);
         tvLocation.setText(mySelf.location);
         if (!TextUtils.isEmpty(mySelf.verified_reason))
             tvDescription.setText(mySelf.verified_reason);

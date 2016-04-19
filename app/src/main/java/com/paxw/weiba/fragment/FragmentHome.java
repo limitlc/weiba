@@ -7,6 +7,7 @@ import android.widget.ListView;
 
 import com.paxw.weiba.R;
 import com.paxw.weiba.utils.AccessTokenKeeper;
+import com.paxw.weiba.utils.Logs;
 import com.paxw.weiba.utils.WeiBoConstants;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.RequestListener;
@@ -70,6 +71,7 @@ public class FragmentHome extends BaseFragment implements BGARefreshLayout.BGARe
         statuse.publicTimeline(50 ,1,false,new RequestListener(){
             @Override
             public void onComplete(String response) {
+                Logs.d("-------",response);
                 if (!TextUtils.isEmpty(response)) {
 
                     StatusList statusList = StatusList.parse(response);
